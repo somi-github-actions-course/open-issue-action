@@ -30818,8 +30818,6 @@ async function run() {
 
         const octokit = github.getOctokit(token);
 
-        console.log('somi octokit: ', octokit);
-
         const data = {
             // owner: github.context.repo.owner,
             // repo: github.context.repo.repo,
