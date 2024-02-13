@@ -30827,8 +30827,11 @@ async function run() {
             assignees: assignees ? assignees.split('\n') : undefined,
         });
 
+        console.log('somi response: ', response);
+
         core.setOutput('issue', response.data);
     } catch (error) {
+        console.log('Somi error: ', error.message);
         core.setFailed(error.message);
     }
 }
