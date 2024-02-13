@@ -9,6 +9,12 @@ async function run() {
         const body = core.getInput('body');
         const assignees = core.getInput('assignees');
 
+        console.log('Somi');
+        console.log('token: ', token);
+        console.log('title: ', title);
+        console.log('body: ', body);
+        console.log('assignees: ', assignees);
+
         const octokit = github.getOctokit(token);
 
         const response = await octokit.rest.issues.create({
