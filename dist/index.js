@@ -30818,20 +30818,21 @@ async function run() {
 
         const octokit = github.getOctokit(token);
 
-        const response = await octokit.rest.issues.create({
+        const data = {
             // owner: github.context.repo.owner,
             // repo: github.context.repo.repo,
             ...github.context.repo,
             title,
             body,
             assignees: assignees ? assignees.split('\n') : undefined,
-        });
+        }
 
-        console.log('somi response: ', response);
+        console.log('data: ', data);
+
+        const response = await octokit.rest.issues.create(data);
 
         core.setOutput('issue', response.data);
     } catch (error) {
-        console.log('Somi error: ', error.message);
         core.setFailed(error.message);
     }
 }
